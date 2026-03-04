@@ -119,6 +119,24 @@ include:
 - [kitty](https://sw.kovidgoyal.net/kitty/)
 - [wezterm](https://wezterm.org/index.html)
 
+### install
+
+```sh
+# install it with cargo
+cargo install alacritty
+
+# build it yourself
+# https://github.com/alacritty/alacritty/blob/master/INSTALL.md#debianubuntu
+
+# maybe apt?
+```
+
+to make it the default terminal, the one that comes up when you hit "ctrl+alt+t":
+```sh
+sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator $(which alacritty) 50
+sudo update-alternatives --config x-terminal-emulator
+```
+
 my alacritty config can be found at:
 https://github.com/gjcliff/.dotfiles/blob/main/.config/alacritty/alacritty.toml
 
@@ -254,6 +272,13 @@ https://mamba.readthedocs.io/en/latest/installation/mamba-installation.html
 
 i'm using this at work right now for pytorch projects which is why i'm including
 it
+
+## shortucts
+use ctrl+alt+t to open terminal
+use alt+tab and alt+shift+tab to get between windows
+use ctrl+tab and ctrl+shift+tab to get between browswer windows
+use the vimium browser extension to navigate the web mouse free:
+https://chromewebstore.google.com/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb?hl=en&pli=1
 
 ## configs
 you can see all the configs i use here:
