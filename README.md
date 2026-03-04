@@ -149,7 +149,7 @@ i use the second method. you can take a look at my tmux config file [here](https
 
 here are some things i think you should definitely have in your config:
 ```sh
-# allows you to reload your config with ctrl+r, instead of having to quit tmux
+# allows you to reload your config with ctrl+s+r, instead of having to quit tmux
 # to see the changes you make
 unbind r
 bind r source-file ~/.tmux.conf \; display-message "Config reloaded..."
@@ -165,7 +165,7 @@ set -g mouse on
 bind-key v split-window -h
 bind-key s split-window -v
 
-# use ctrl+y to full screen your active tmux pane, hit it again to unfullscreen
+# use ctrl+s+y to full screen your active tmux pane, hit it again to unfullscreen
 unbind-key z
 bind-key y resize-pane -Z
 
