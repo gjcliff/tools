@@ -11,8 +11,8 @@ i would recommend starting out with the vscode vim or neovim plugins for vscode,
 so that you don't just fully jump off into the deep end all at once. that's what
 i did.
 
-instead of reading my half explanations of stuff, you could watch these videos
-to get a better version of the same information:
+instead of reading my half explanations of stuff through this section, 
+you could watch these videos to get a better version of the same information:
 https://www.youtube.com/playlist?list=PLep05UYkc6wTyBe7kPjQFWVXTlhKeQejM
 
 this guy is a core maintainer of neovim
@@ -20,7 +20,7 @@ this guy is a core maintainer of neovim
 ### install
 to install neovim, i find it's simplest to install it from source. the pinned
 version of neovim in the ubuntu package registry is pretty old, especially on
-OS's such as *cough* *cough* Ubuntu 22.04.
+OS's such as Ubuntu 22.04
 
 neovim has great [build instructions](https://github.com/neovim/neovim/blob/master/BUILD.md)
 
@@ -45,6 +45,11 @@ https://github.com/gjcliff/nvim
 ### plugins
 there are a huge amount of plugins, here are some ones i like
 
+#### essential
+- [which-key.nvim](https://github.com/folke/which-key.nvim) (keybinding hints)
+- [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) (https://www.youtube.com/watch?v=iqdCshrIKIg)
+- [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) (https://www.youtube.com/watch?v=09-9LltqWLY)
+
 #### colorschemes
 - [brightburn](https://github.com/erikbackman/brightburn.vim)
 - [kanagawa](https://github.com/rebelot/kanagawa.nvim)
@@ -52,10 +57,20 @@ there are a huge amount of plugins, here are some ones i like
 - [gruvbox](https://github.com/ellisonleao/gruvbox.nvim)
 - [rose-pine](https://github.com/rose-pine/neovim)
 
-###
+#### amazing
+- [oil.nvim](https://github.com/stevearc/oil.nvim) (warning: life changingly great)
+- [fugitive.nvim](https://github.com/tpope/vim-fugitive) (git stuff, illegally good)
+- [conform.nvim](https://github.com/stevearc/conform.nvim) (formatting)
+- [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) (pretty)
+- [autopairs.nvim](https://github.com/windwp/nvim-autopairs) (attention vscode users)
+- [leetcode.nvim](https://github.com/kawre/leetcode.nvim)
+- [luasnip](https://github.com/L3MON4D3/LuaSnip)
+    - https://www.youtube.com/watch?v=Dn800rlPIho
+    - https://www.youtube.com/watch?v=KtQZRAkgLqo&t=271s
+    - https://www.youtube.com/watch?v=aNWx-ym7jjI
 
 ### lsp
-watch this (required):
+watch this:
 https://www.youtube.com/watch?v=bTWWFQZqzyI
 
 this is kinda hard to figure out. you can checkout my lsp.lua file in my config as 
@@ -63,8 +78,24 @@ an example. i use something called [Mason] to install lsps easily.
 
 ask me if you have questions
 
+here is my lsp config:
+https://github.com/gjcliff/nvim/blob/main/lua/graham/lazy/lsp.lua
+
+and configuration of individual lsps:
+https://github.com/gjcliff/nvim/tree/main/after/lsp
+
+i'd say this is the trickiest part you have to figure out before you can do real 
+work in nvim
+
 ### learning
 it takes time
+
+you can view neovim's extensive help pages and manual by opening neovim and
+typing ":help"
+
+read the first bit to learn how to navigate the manual
+
+you can also add keywords to help, like ":help tabs"
 
 amazing:
 https://www.youtube.com/watch?v=X6AR2RMB5tE&list=PLm323Lc7iSW_wuxqmKx_xxNtJC_hJbQ7R
@@ -80,7 +111,7 @@ you can just hop right into vim-be-good with this docker command:
 docker run -it --rm brandoncc/vim-be-good:stable
 ```
 
-# alacritty
+## alacritty
 alacritty is a terminal emulator that uses gpu acceleration and can be
 configured with a simple toml file. other terminals you may be interested in
 include:
@@ -101,7 +132,7 @@ there are other fonts:
 - [FiraCode](https://github.com/tonsky/FiraCode)
 - many many many other fonts
 
-# tmux
+## tmux
 install with
 ```bash
 sudo apt install tmux
@@ -173,7 +204,7 @@ https://github.com/tmux-plugins/tpm
 
 and then once it's installed, start tmux fresh and you should be good to go.
 
-# zsh
+## zsh
 https://zsh.sourceforge.io/
 
 zsh feels better than bash. tab is your best friend. with zsh, you can use tab and enter
@@ -199,13 +230,13 @@ bash -c "apt-get update -q && apt-get install -y -q zsh && exec zsh"
 ls # then hit tab a bunch of times
 ```
 
-# omz
+## omz
 this is how you get themes, better tab completion with your favorite programs,
 timestamps in your terminal, etc.
 https://ohmyz.sh/
 https://ohmyz.sh/#install
 
-# conda/mamba
+## conda/mamba
 conda is similar to python virtual environments except it's different
 
 with conda, you can install:
@@ -224,6 +255,6 @@ https://mamba.readthedocs.io/en/latest/installation/mamba-installation.html
 i'm using this at work right now for pytorch projects which is why i'm including
 it
 
-# configs
+## configs
 you can see all the configs i use here:
 https://github.com/gjcliff/.dotfiles
