@@ -11,32 +11,36 @@ i would recommend starting out with the vscode vim or neovim plugins for vscode,
 so that you don't just fully jump off into the deep end all at once. that's what
 i did.
 
+instead of reading my half explanations of stuff, you could watch these videos
+to get a better version of the same information:
+https://www.youtube.com/playlist?list=PLep05UYkc6wTyBe7kPjQFWVXTlhKeQejM
+
+this guy is a core maintainer of neovim
+
 ### install
 to install neovim, i find it's simplest to install it from source. the pinned
 version of neovim in the ubuntu package registry is pretty old, especially on
 OS's such as *cough* *cough* Ubuntu 22.04.
 
-neovim has great build instructions. you can find them [here](https://github.com/neovim/neovim/blob/master/BUILD.md)!
+neovim has great [build instructions](https://github.com/neovim/neovim/blob/master/BUILD.md)
 
-this is great, because when neovim releases a new stable version, you can update
-by running ```git pull``` inside the neovim repo, and then rebuilding and
-reinstalling.
+building neovim is great because when neovim releases a new stable version, you 
+can update by running ```git pull``` inside the neovim repo, and then rebuilding 
+and reinstalling.
 
 ### package managers
 i watched [this video](https://www.youtube.com/watch?v=w7i4amO_zaE) to learn how to configure neovim
 it's pretty outdated now. the package manager he uses, "packer", is abandoned.
 
-a very popular package manager and the one i use now is [lazy.nivm](https://github.com/folke/lazy.nvim)
+one very popular package manager and the one i use now is [lazy.nivm](https://github.com/folke/lazy.nvim)
 
 in neovim, the package manager installs and manages your plugins. these are
 exactly like vscode plugins. most plugins live on github, and you can install
-anything you want. you can even [write your own](https://www.youtube.com/watch?v=VGid4aN25iI&list=PL8M9ZjrDX7lp_Cfr5cul2pLZm-vle9Sns).
+anthing you want. you can even [write your own](https://www.youtube.com/watch?v=VGid4aN25iI&list=PL8M9ZjrDX7lp_Cfr5cul2pLZm-vle9Sns)
 
-you can checkout my neovim config for ideas on how to structure your own:
+this is my neovim config that i use every day:
 https://github.com/gjcliff/nvim
 
-in fact, after you install neovim, you could clone into the ```~/.config/``` dir
-and use my config straight up.
 
 ### plugins
 there are a huge amount of plugins, here are some ones i like
@@ -48,15 +52,22 @@ there are a huge amount of plugins, here are some ones i like
 - [gruvbox](https://github.com/ellisonleao/gruvbox.nvim)
 - [rose-pine](https://github.com/rose-pine/neovim)
 
-#### lsp
+###
+
+### lsp
 watch this (required):
 https://www.youtube.com/watch?v=bTWWFQZqzyI
 
-this is kinda hard to figure out. you can checkout my lsp.lua file in my config asan
+this is kinda hard to figure out. you can checkout my lsp.lua file in my config as 
 an example. i use something called [Mason] to install lsps easily.
 
+ask me if you have questions
+
 ### learning
-it takes time to learn vim
+it takes time
+
+amazing:
+https://www.youtube.com/watch?v=X6AR2RMB5tE&list=PLm323Lc7iSW_wuxqmKx_xxNtJC_hJbQ7R
 
 here's a playlist with some great videos on youtube for learning vim motions.
 https://www.youtube.com/watch?v=X6AR2RMB5tE&list=PLm323Lc7iSW_wuxqmKx_xxNtJC_hJbQ7R
@@ -112,7 +123,7 @@ here are some things i think you should definitely have in your config:
 unbind r
 bind r source-file ~/.tmux.conf \; display-message "Config reloaded..."
 
-# change default prefix to ctrl+s from ctrl+b
+# change default prefix to ctrl+s from ctrl+b because it's easier for me
 set -g prefix C-s
 
 # mouse support
@@ -128,7 +139,7 @@ unbind-key z
 bind-key y resize-pane -Z
 
 # color settings for nvim
-set -g default-terminal "tmux-256color"
+set -g default-terminal "xterm-256color"
 set-option -a terminal-overrides 'alacritty:Tc'
 
 # tpm: https://github.com/tmux-plugins/tpm
@@ -157,16 +168,62 @@ set -g status-position top
 run '~/.tmux/plugins/tpm/tpm'
 ```
 
-the bottom of my config is related to integrating with a neovim plugin to allow
-me to move between tmux terminals and nvim buffers with the same motion. [here's
-the plugin](https://github.com/christoomey/vim-tmux-navigator). i need to explain this further.
+in order for this to work right you need to install the tmux plugin manager (tpm)
+https://github.com/tmux-plugins/tpm
 
-the default prefix is ctrl+b in tmux. i changed mine to ctrl+s because i think
-it's easier to hit. 
+and then once it's installed, start tmux fresh and you should be good to go.
 
 # zsh
+https://zsh.sourceforge.io/
+
+zsh feels better than bash. tab is your best friend. with zsh, you can use tab and enter
+to lazily navigate through directories on the command line, and it's great!
+
+you can just install it from apt, but there are other ways if you want a newer
+version:
+https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH
+
+```bash
+sudo apt install zsh
+zsh --version
+# change shell to zsh
+chsh -s $(which zsh)
+```
+
+if you want to test out a proper zsh experience with oh-my-zsh installed, you
+can do this:
+```bash
+docker run -it --rm -e TERM=xterm-256color ubuntu:24.04 \
+bash -c "apt-get update -q && apt-get install -y -q zsh && exec zsh"
+
+ls # then hit tab a bunch of times
+```
+
 # omz
-# keybindings
+this is how you get themes, better tab completion with your favorite programs,
+timestamps in your terminal, etc.
+https://ohmyz.sh/
+https://ohmyz.sh/#install
+
+# conda/mamba
+conda is similar to python virtual environments except it's different
+
+with conda, you can install:
+* different versions of python easily
+* non-python dependencies such as CUDA, R, C libraries, and other stuff
+
+that's why you see it in a lot of pytorch/machine learning projects.
+
+mamba is like a free, open source, faster version of conda. the company behind
+conda made it so you have to pay to download packages from them using conda,
+mamba is totally free.
+
+https://github.com/mamba-org/mamba
+https://mamba.readthedocs.io/en/latest/installation/mamba-installation.html
+
+i'm using this at work right now for pytorch projects which is why i'm including
+it
+
 # configs
-# zshrc
-# bashrc
+you can see all the configs i use here:
+https://github.com/gjcliff/.dotfiles
