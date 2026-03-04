@@ -2,7 +2,7 @@
 
 ## nvim
 ### intro
-neovim is a community fork of vim. it's great! 
+neovim is a community fork of vim. it's so cool bro
 
 i would you like to direct your attention to the following diagram:  
 ![vim_graph](./vim_graph.png)
